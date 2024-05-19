@@ -1,0 +1,15 @@
+# encoding: utf-8
+---
+recipe:
+  Rx: all
+  description: >-
+    all content
+
+download_files: >-
+  https://raw.githubusercontent.com/rime/rime-essay/master/essay.txt
+
+install_files: >-
+  *.dict.yaml
+  *.schema.yaml
+  default.yaml
+  essay.txt

@@ -1,0 +1,137 @@
+# Rime default settings
+# encoding: utf-8
+
+config_version: '0.40'
+
+schema_list:
+  - schema: luna_pinyin
+
+switcher:
+  caption: 㞢
+  hotkeys:
+    - Control+grave
+    - Control+Shift+grave
+    - Control+F4
+  save_options:
+    - full_shape
+    - ascii_punct
+    - simplification
+    - extended_charset
+    - zh_hant
+    - zh_hans
+    - zh_hant_tw
+  fold_options: true
+  abbreviate_options: true
+  option_list_separator: '/'
+
+menu:
+  page_size: 5
+  page_down_cycle: true
+
+punctuator:
+  full_shape:
+    " ": { commit: "　" }
+    ",": { commit: ， }
+    ".": { commit: 。 }
+    "<": [《, 〈, «, ‹]
+    ">": [》, 〉, », ›]
+    "/": [／, ÷]
+    "?": { commit: ？ }
+    ";": { commit: ； }
+    ":": { commit: ： }
+    "'": { pair: ["‘", "’"] }
+    '"': { pair: ["“", "”"] }
+    '\': [、, ＼]
+    "|": [·, ｜, "§", "¦"]
+    "`": ｀
+    "~": ～
+    "!": { commit: ！ }
+    "@": [＠, ☯]
+    "#": [＃, ⌘]
+    "%": [％, "°", "℃"]
+    "$": [￥, "$", "€", "£", "¥", "¢", "¤"]
+    "^": { commit: …… }
+    "&": ＆
+    "*": [＊, ·, ・, ×, ※, ❂]
+    "(": （
+    ")": ）
+    "-": －
+    "_": ——
+    "+": ＋
+    "=": ＝
+    "[": [「, 【, 〔, ［]
+    "]": [」, 】, 〕, ］]
+    "{": [『, 〖, ｛]
+    "}": [』, 〗, ｝]
+  half_shape:
+    ",": { commit: "，" }
+    ".": { commit: "。" }
+    "<": { commit: "《" }
+    ">": { commit: "》" }
+    "/": { commit: "/" }
+    "?": { commit: "？" }
+    ";": { commit: "；" }
+    ":": { commit: "：" }
+    "'": { pair: ["‘", "’"] }
+    '"': { pair: ["“", "”"] }
+    '\': { commit: "、" }
+    "|": { commit: "•" }
+    "`": { commit: "`" }
+    "~": { commit: "~" }
+    "!": { commit: "！" }
+    "@": { commit: "@" }
+    "#": { commit: "#" }
+    "%": { commit: "%" }
+    "$": { commit: "$" }
+    "^": { commit: "……" }
+    "&": { commit: "&" }
+    "*": { commit: "*" }
+    "(": { commit: "（" }
+    ")": { commit: "）" }
+    "-": { commit: "-" }
+    "_": { commit: "_" }
+    "+": { commit: "+" }
+    "=": { commit: "=" }
+    "[": ["「", "【"]
+    "]": ["」", "】"]
+    "{": ["『", 〖]
+    "}": ["』", 〗]
+
+key_binder:
+  bindings:
+    - { accept: ISO_Left_Tab, send: Shift+Left, when: composing }
+    - { accept: Shift+Tab, send: Shift+Left, when: composing }
+    - { accept: Tab, send: Shift+Right, when: composing }
+    - { accept: Insert, send: Shift+Right, when: composing }
+    - { accept: Control+Tab, send: Shift+Right, when: composing }
+    # - { accept: "Control+j", send: Down, when: has_menu }
+    # - { accept: "Control+k", send: Up, when: has_menu }
+    # - { accept: "Control+l", send: Page_Down, when: has_menu }
+    # - { accept: "Control+h", send: Page_Up, when: has_menu }
+    # - { accept: "Control+bracketleft", send: Home, when: has_menu }
+    # - { accept: "Control+bracketright", send: End, when: has_menu }
+    - { accept: Left, send: Page_Up, when: has_menu }
+    - { accept: Right, send: Page_Down, when: has_menu }
+    - { accept: KP_Enter, when: composing, send: Return }
+    - { accept: "Control+Shift+F1", toggle: ascii_mode, when: always }
+    - { accept: "Control+Shift+F2", select: .next, when: always }
+    # - { accept: Control+space, when: always, toggle: ascii_mode }
+    - { accept: Shift+space, when: always, toggle: ascii_mode }
+    - { accept: "Control+Shift+F1", when: composing, send: Eisu_toggle }
+    - { accept: Shift+space, when: composing, send: Eisu_toggle }
+    # - { accept: Control+space, when: always, send: Eisu_toggle }
+
+recognizer:
+  patterns:
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+
+ascii_composer:
+  good_old_caps_lock: true
+  switch_key:
+    Shift_L: noop
+    Shift_R: commit_code
+    Control_L: noop
+    Control_R: noop
+    Caps_Lock: clear
+    Eisu_toggle: commit_code
